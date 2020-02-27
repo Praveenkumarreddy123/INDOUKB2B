@@ -1,0 +1,216 @@
+<div id="primary" class="opprotunites_page">
+    <div class="FormContainer box-shadow-none p-0 m-auto">
+       <form name="OpprotunitesForm" action="" method="post" autocomplete="off">
+           <div class="opprotunites_header">
+               <div class="main_block">
+                   <div class="row no-gutters align-items-center">
+                       <div class="col-md-3">
+                           <h2 class="section_card_title mb-0 border-0 p-0 font-weight-bold">OPPORTUNITIES</h2>
+                       </div>
+                       <div class="col-md-9">
+                           <div class="row">
+                               <div class="col-md-10 search_container">
+                               <div class="form-group mb-0"> 
+                                       <div class="searchbox">
+                                        <input type="text" class="bg-transparent" name="searchtender_input" [(ngModel)]="searchTender" id="searchtender_input" aria-describedby="Email" placeholder="Search by Indutries">
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-md-2 postTender_container">
+                               <a href="Signup.php" class="btn siteBtn-primary-outline-blue text-uppercase ">+ Post Tender</a>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div> 
+           <div class="opprotunites_section">
+               <div class="main_block">
+                   <div class="row">
+                           <div class="col-md-3">
+                              <div class="filter_container">
+                                   <div class="form-group">
+                                       <label for="user_email">Filter Tenders</label>
+                                       <input type="text" class="" placeholder="Search Tenders by Title" name="login_email" [(ngModel)]="filterObject.Tender_Title" id="login_email" aria-describedby="Email" [ngModelOptions]="{standalone: true}">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="filter_Industry">Industry</label>
+                                       <select [(ngModel)]="filterObject.Industry" class="form-control" id="filter_Industry" [ngModelOptions]="{standalone: true}">
+                                           <option selected value="0">Industry</option>
+                                           <option value="Computer/Information Technology">Computer/Information Technology</option>
+                                           <option value="Accounting/Auditing/Taxation">Accounting/Auditing/Taxation</option>
+                                           <option value="Admin/Human Resources">Admin/Human Resources</option>
+                                           <option value="Arts/Media and Communications">Arts/Media and Communications</option>
+                                           <option value="Events/Promotions">Events/Promotions</option>
+                                           <option value="Garments">Garments</option>
+                                           <option value="Electronics and Electricals">Electronics and Electricals</option>
+                                           <option value="Industrial Suppliers">Industrial Suppliers</option>
+                                           <option value="Hotels & Restaurants">Hotels & Restaurants</option>
+                                           <option value="Agri Products/Commodities other">Agri Products/Commodities other</option>
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="filter_date_posted">Date Posted</label>
+                                       <select [(ngModel)]="filterObject.Posted_date" class="form-control" id="filter_date_posted" [ngModelOptions]="{standalone: true}">
+                                           <option value="0">Date Posted</option>
+                                           <option value="1">Past 24 hours</option>
+                                           <option value="2">Past 1 Week</option>
+                                           <option selected="selected" value="3">Past 1 Month</option>
+                                           <option value="4">Past 6 Month</option>
+                                       </select>
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="filter_tenderValue">Tender Value</label>
+                                       <select [(ngModel)]="filterObject.filterByTenderValue"  class="form-control" id="filter_tenderValue" [ngModelOptions]="{standalone: true}">
+                                           <option selected="selected" value="0">Tender Value</option>
+                                           <option value="1">Less than 10 lakh</option>
+                                           <option value="2">10 lakh - 1 crore</option>
+                                           <option value="3">Above 1 crore</option>
+                                       </select>
+                                   </div>
+                                   <div class="text-center">
+                                       <a href="javascript:void(0)" class="btn siteBtn-primary-outline-blue text-uppercase d-block " (click)="OnSearchFilter()">Submit</a>
+                                   </div>
+                                   <div class="text-center pt-3">
+                                       <a href="javascript:void(0)" (click)="OnResetSearchFilter()" class="reset">Reset</a>
+                                   </div>
+                              </div>
+                           </div>
+                       <div class="col-md-9 opprotunites_card_container">
+                           
+                           <div class="row">
+                              <div class="alert alert-warning" *ngIf="TenderList.length < 1">No Data Available</div>
+                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 tender_card" *ngFor="let tender of TenderList | filterTender : searchTender : 'searchFilter'">
+                                   <div class="content">
+                                       <div class="tender_header">
+                                           <p class="m-0">{{tender.Tender_Title}}</p>
+                                           <div clas="">
+                                           <span class="shortlist_icon"></span>
+                                           </div>
+                                       </div>
+                                       <div class="tender_body">
+                                           <ul class="list-unstyled">
+                                               <li><span>Contract Type :</span><span>{{tender.Contract_Type}}</span></li>
+                                               <li><span>Industry :</span><span>{{tender.Industry}}</span></li>
+                                               <li><span>Tender Value:</span><span>{{tender.Opportunity_Value_Min}} to {{tender.Opportunity_Value_Max}}</span></li>
+                                               <li><span>Tender Ref No :</span><span>TED{{tender.Tender_Id}}</span></li>
+                                           </ul>
+                                           <div class="tender_dates">
+                                               <div class="postedDate">
+                                                   <p>Posted :<span>{{tender.Posted_date | removeTime}}</span></p>
+                                               </div>
+                                               <div class="cloeddate">
+                                                   <p>Closed :<span>{{tender.Closed_Date | removeTime}}</span></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="tender_footer">
+                                           <div class="text-right">
+                                               <a href="Signup.php" class="btn siteBtn-primary-blue text-uppercase  ">Apply</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <!-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 tender_card">
+                                   <div class="content">
+                                       <div class="tender_header">
+                                           <p class="m-0">Petra Wheel Chair</p>
+                                           <div clas="">
+                                           <span class="shortlist_icon shortlisted"></span>
+                                           </div>
+                                       </div>
+                                       <div class="tender_body">
+                                           <ul class="list-unstyled">
+                                               <li><span>Contract Type :</span><span>Project Based</span></li>
+                                               <li><span>Industry :</span><span>Computer/Information Technology</span></li>
+                                               <li><span>Tender Value:</span><span>$200000 to 400000</span></li>
+                                               <li><span>Tender Ref No :</span><span>TED0000001</span></li>
+                                           </ul>
+                                           <div class="tender_dates">
+                                               <div class="postedDate">
+                                                   <p>Posted :<span>20/12/2019</span></p>
+                                               </div>
+                                               <div class="cloeddate">
+                                                   <p>Closed :<span>20/12/2019</span></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="tender_footer">
+                                           <div class="text-right">
+                                               <a href="Signup.php" class="btn siteBtn-primary-blue text-uppercase  ">Apply</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 tender_card">
+                                   <div class="content">
+                                       <div class="tender_header">
+                                           <p class="m-0">Petra Wheel Chair</p>
+                                           <div clas="">
+                                           <span class="shortlist_icon"></span>
+                                           </div>
+                                       </div>
+                                       <div class="tender_body">
+                                           <ul class="list-unstyled">
+                                               <li><span>Contract Type :</span><span>Project Based</span></li>
+                                               <li><span>Industry :</span><span>Computer/Information Technology</span></li>
+                                               <li><span>Tender Value:</span><span>$200000 to 400000</span></li>
+                                               <li><span>Tender Ref No :</span><span>TED0000001</span></li>
+                                           </ul>
+                                           <div class="tender_dates">
+                                               <div class="postedDate">
+                                                   <p>Posted :<span>20/12/2019</span></p>
+                                               </div>
+                                               <div class="cloeddate">
+                                                   <p>Closed :<span>20/12/2019</span></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="tender_footer">
+                                           <div class="text-right">
+                                               <a href="Signup.php" class="btn siteBtn-primary-blue text-uppercase  ">Apply</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-12 col-sm-12 col-md-6 col-lg-6 tender_card">
+                                   <div class="content">
+                                       <div class="tender_header">
+                                           <p class="m-0">Petra Wheel Chair</p>
+                                           <div clas="">
+                                           <span class="shortlist_icon"></span>
+                                           </div>
+                                       </div>
+                                       <div class="tender_body">
+                                           <ul class="list-unstyled">
+                                               <li><span>Contract Type :</span><span>Project Based</span></li>
+                                               <li><span>Industry :</span><span>Computer/Information Technology</span></li>
+                                               <li><span>Tender Value:</span><span>$200000 to 400000</span></li>
+                                               <li><span>Tender Ref No :</span><span>TED0000001</span></li>
+                                           </ul>
+                                           <div class="tender_dates">
+                                               <div class="postedDate">
+                                                   <p>Posted :<span>20/12/2019</span></p>
+                                               </div>
+                                               <div class="cloeddate">
+                                                   <p>Closed :<span>20/12/2019</span></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="tender_footer">
+                                           <div class="text-right">
+                                               <a href="Signup.php" class="btn siteBtn-primary-blue text-uppercase  ">Apply</a>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>  -->
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </form>
+       <p class="text-center"> &copy; 
+           <script>  document.write(new Date().getFullYear()); </script>   Ind-london2020.com. All rights reserved.</p>
+    </div>
+</div> 
