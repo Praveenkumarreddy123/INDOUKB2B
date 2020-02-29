@@ -365,8 +365,8 @@ h4.SectionTitle {
 	color: #000000;
 }
 h3{
-	font-size: 28px;
-	line-height: 30px;
+	font-size: 20px;
+    line-height: 32px;
 }
 .pageLink {
 	color: #5d43a0;
@@ -375,12 +375,14 @@ h3{
 /* About */
 .aboutSite {
 	padding:50px 0px 10px;
+	width: 65%;
 }
 /* About */
 /*Explore Industry*/
 .ExploreIndustriesContainer .ExploreindustriesCards {
 	width: 100%;
 	padding: 0;
+	margin: 0 auto;
 }
 .ExploreIndustriesContainer .ExploreindustriesCards li{
 	list-style: none;
@@ -419,7 +421,7 @@ h3{
 }
 .ExploreIndustriesContainer .ExploreindustriesCards li a .icon + p {
 	margin: 0;
-	padding-top: 30px;
+	padding: 17px 5px 0;
 	font-size: 16px;
 	text-align: center;
 	line-height: normal;
@@ -522,7 +524,7 @@ footer .social-icons li a.linkedIn{
 	background-size: contain;
 }
 footer .social-icons + p {
-	font-size: 21px;
+	font-size: 16px;
 }
 /*Footer*/
 
@@ -536,7 +538,10 @@ footer .social-icons + p {
 	padding:45px 55px;
 }
 .FormPage .FormPage-footer p {
-	font-size: 21px;
+	font-size: 15px;
+}
+.login_page > a:first-child{
+	font-size: 16px;
 }
 .FormContainer {
 	padding:35px 35px 40px;
@@ -546,7 +551,8 @@ footer .social-icons + p {
 	
 }
 .login_page .FormContainer {
-	width: 450px;
+	max-width: 450px;
+	width:100%;
 }
 .FormContainer label {
 	font-size: 14px;
@@ -554,7 +560,7 @@ footer .social-icons + p {
 	color:#747c85;
 }
 .FormContainer label + input, .FormContainer label + select, .FormContainer label + textarea { 
-	margin-top: 16px;
+	margin-top: 7px;
 }
 .FormContainer label + textarea {
 	width: 100%;
@@ -566,8 +572,8 @@ footer .social-icons + p {
 	margin-bottom:23px;
 }
 .FormContainer input[type="text"], .FormContainer input[type="password"] {
-	padding: 0px 15px;
-	height: 35px;
+	padding: 8px 15px;
+	height: auto;
 	border-radius:0px;
 	border:1px solid #e5e5e5;
 	background: #ffffff;
@@ -591,12 +597,13 @@ footer .social-icons + p {
 	border-radius: 0;
 	background: #fff;
 	border: 1px solid #e5e5e5;
+	top: 5px;
 }
 .FormContainer .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
 	background: #5d43a0;
 }
 .FormContainer .custom-checkbox .custom-control-label {
-	padding-left: 16px;
+	padding-left: 2px;
 }
 .FormContainer .site-form-button {
 	width: 100%;
@@ -1010,3 +1017,116 @@ input.error + span {
 	font-size: 16px;
 }
 /*Popup*/
+@media screen and (max-width:1300px){
+	.navbar-light .navbar-nav .nav-link{
+		font-size: 15px;
+		margin: 0px 14px 0px;
+	}
+	.main_block{
+		width: 90%;
+	}
+	.aboutSite{
+		width: 70%;
+	}
+	footer .social-icons li {
+		margin: 0px 40px 0px;
+	}
+	footer .social-icons li a{
+		width: 36px;
+    	height: 36px;
+	}
+}
+@media screen and (max-width:1200px){
+	.navbar-light .navbar-nav .nav-link{
+		font-size: 14px;
+		margin: 0px 11px 0px;
+	}
+	.main_block{
+		width: 93%;
+	}
+	.aboutSite{
+		width: 80%;
+	}
+	h1 {
+		font-size: 48px;
+		line-height: 67px;
+	}
+	.bannerContainer .bannerContent .banner-Title {
+		padding-bottom: 25px;
+	}
+	h1 {
+		font-size: 45px;
+		line-height: 63px;
+	}
+}
+@media screen and (max-width:991px){
+	.bannerContainer .bannerContent{
+		text-align: center;
+	}
+	.main_block{
+		width: 93%;
+	}
+	.ExploreIndustriesContainer .ExploreindustriesCards li{
+		width: 25%;
+		padding-bottom: 45px;
+	}
+	.navbar-light .navbar-nav .nav-link {
+		font-size: 14px;
+		margin: 14px 11px 0px;
+		color: #5d43a0;
+	}
+	.navbar-collapse{
+		background: white;
+    	padding: 10px 10px 20px;
+	}
+	.navbar-light .navbar-nav .nav-link.headerBtns{
+		margin: 14px 11px 0 !important;
+		border: 1px solid #5d43a0;
+		font-size: 14px;
+		color:#5d43a0 !important;
+	}
+	.navbar-light .navbar-nav .nav-link.siteBtn-primary{
+		background: #5d43a0;
+		color: #fff !important;
+	}
+	.site-header{
+		padding: 15px 0px;
+	}
+}
+@media screen and (max-width:800px){
+	.ExploreIndustriesContainer .ExploreindustriesCards li{
+		width: 33.3%;
+	}
+}
+@media screen and (max-width:600px){
+	.FormPage{
+		padding:25px 20px;
+	}
+	.FormContainer{
+		margin:30px auto;
+	}
+	.ExploreIndustriesContainer .ExploreindustriesCards li{
+		width: 50%;
+	}
+	.ExploreIndustriesContainer .ExploreindustriesCards li a .icon + p{
+		width: 80%;
+		margin: 0 auto;
+	}
+	.PageSectionCommonPadding {
+		padding: 60px 30px;
+	}
+	footer .social-icons + p {
+		font-size: 14px;
+	}
+	footer .social-icons {
+		margin-bottom: 15px;
+	}
+	.section_card_para{
+		line-height: 33px;
+	}
+}
+@media screen and (max-width:480px){
+	.ExploreIndustriesContainer .ExploreindustriesCards li{
+		width: 100%;
+	}
+}

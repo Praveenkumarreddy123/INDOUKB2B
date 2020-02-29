@@ -64,7 +64,7 @@
 									<a href="Signup.php" class="btn nav-link siteBtn-primary-outline headerBtns">Signup</a>
 								</li> 
 								<li class="nav-item">
-									<a href="login.php" class="btn nav-link siteBtn-primary mr-0 headerBtns">Login</a>
+									<a href="login.php" class="btn nav-link siteBtn-primary mx-0 headerBtns">Login</a>
 								</li> 
 
 							<?php } else { ?>
