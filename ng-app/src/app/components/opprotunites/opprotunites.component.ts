@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 })
 export class OpprotunitesComponent implements OnInit {
   public TenderList = [];
+  public TenderList_cpy = [];
   public searchTender: any;
 
   public people = [];
@@ -24,6 +25,7 @@ export class OpprotunitesComponent implements OnInit {
           data.Opportunity_Value_Max = +data.Opportunity_Value_Max;
           data.Opportunity_Value_Min = +data.Opportunity_Value_Min;
           this.TenderList.push(data);
+          this.TenderList_cpy = this.TenderList;
         });
       }
     }, error => {
@@ -33,6 +35,7 @@ export class OpprotunitesComponent implements OnInit {
 
   OnSearchFilter() {
     const searchFilter: SearchTenderFilter = this.filterObject;
+    this.TenderList = this.TenderList_cpy;
     console.log(searchFilter);
     const filterTender =  this.TenderList.filter((tender: Tender, index: number) => {
       return ((searchFilter.hasOwnProperty('Tender_Title') ? tender.Tender_Title.includes(searchFilter.Tender_Title) : true) && (searchFilter.hasOwnProperty('Industry') ? tender.Industry === searchFilter.Industry : true) && this.AmountFilter(tender, searchFilter) && this.filterByJoinDate(tender, searchFilter));
@@ -41,6 +44,7 @@ export class OpprotunitesComponent implements OnInit {
   }
   OnResetSearchFilter() {
     this.filterObject = new SearchTenderFilter();
+    this.TenderList = this.TenderList_cpy;
   }
 
   AmountFilter(tender: Tender, fliterObj: SearchTenderFilter) {
