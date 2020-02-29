@@ -12,7 +12,7 @@ import { CreateTenderComponent } from './components/create-tender/create-tender.
 import { DataserviceService } from './services/dataservice.service';
 import { Tender, SearchTenderFilter } from './classes/tender';
 import { RemoveTime } from './pipes/removeTime';
-import { FilterTender } from './pipes/tendersearchbyindustry'; 
+import { FilterTender } from './pipes/tendersearchbyindustry';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { FilterTender } from './pipes/tendersearchbyindustry';
     APP_ROUTING,
     FormsModule
   ],
-  providers: [DataserviceService, Tender, SearchTenderFilter, {provide: APP_BASE_HREF, useValue: '/Projects/IndoUKB2B/'}],
+  providers: [DataserviceService, Tender, SearchTenderFilter, {provide: APP_BASE_HREF, useValue: '/Projects/Workplace/INDOUKB2B/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

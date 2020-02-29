@@ -52,20 +52,21 @@
                                    <div class="form-group">
                                        <label for="filter_date_posted">Date Posted</label>
                                        <select [(ngModel)]="filterObject.Posted_date" class="form-control" id="filter_date_posted" [ngModelOptions]="{standalone: true}">
-                                           <option value="0">Date Posted</option>
-                                           <option value="1">Past 24 hours</option>
-                                           <option value="2">Past 1 Week</option>
-                                           <option selected="selected" value="3">Past 1 Month</option>
-                                           <option value="4">Past 6 Month</option>
+                                           <option value="0" selected="selected" >Date Posted</option>
+                                           <option value="last-24-hours">Past 24 hours</option>
+                                           <option value="last-Week">Past 1 Week</option>
+                                           <option selected="last-Month" value="3">Past 1 Month</option>
+                                           <option value="last-6-Month">Past 6 Month</option>
                                        </select>
                                    </div>
                                    <div class="form-group">
                                        <label for="filter_tenderValue">Tender Value</label>
                                        <select [(ngModel)]="filterObject.filterByTenderValue"  class="form-control" id="filter_tenderValue" [ngModelOptions]="{standalone: true}">
                                            <option selected="selected" value="0">Tender Value</option>
-                                           <option value="1">Less than 10 lakh</option>
-                                           <option value="2">10 lakh - 1 crore</option>
-                                           <option value="3">Above 1 crore</option>
+                                           <option value="below-1-lakh">Less than 1 lakh</option>
+                                           <option value="1-lakh-to-5-lakh">1 lakh to 5 lakh</option>
+                                           <option value="10-lakh-to-1-core">10 lakh to 1 core</option>
+                                           <option value="above-1-core">Above 1 core</option>
                                        </select>
                                    </div>
                                    <div class="text-center">

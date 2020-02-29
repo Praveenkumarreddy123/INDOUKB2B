@@ -2,7 +2,7 @@
 	session_start();
 	
 ?>
-<base href="<?php echo (dirname('').'/Projects/IndoUKB2B/') ?>">
+<base href="<?php echo (dirname('').'/Projects/Workplace/INDOUKB2B/') ?>">
 <!DOCTYPE HTML>
 <html>
 <head>
