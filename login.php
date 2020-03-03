@@ -36,7 +36,7 @@
                             <input type="password" class="" id="login_password" aria-describedby="password" />
                             <span class="error">Password is required</span>
                         </div>
-                        <div class="d-md-flex">
+                        <div class="d-flex">
                             <div class="custom-control custom-checkbox w-100 text-left">
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1">Remember me</label>
